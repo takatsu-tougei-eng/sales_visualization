@@ -87,7 +87,7 @@ function main() {
       const quantity = parseInt(row[12], 10); // 個数
       const subtotal = parseInt(row[13], 10); // 小計
 
-      if (status !== "完了") {
+      if (status === "返金済み") {
         skipped++;
         continue;
       }
