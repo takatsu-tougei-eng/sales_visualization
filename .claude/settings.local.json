@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:heyinc.github.io)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:goqsystem.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(gh api:*)",
+      "Bash(python -c:*)",
+      "WebFetch(domain:officialmag.stores.jp)",
+      "WebFetch(domain:product.st.inc)",
+      "Bash(xxd:*)",
+      "Bash(powershell -Command \"[System.Text.Encoding]::GetEncoding\\(''shift_jis''\\).GetString\\([System.IO.File]::ReadAllBytes\\(''D:/Public/github/takatsu-tougei-eng/sales_visualization/csv/20260213.csv''\\)\\)\")",
+      "Bash(node -e:*)",
+      "Bash(python3:*)",
+      "Bash(npx create-next-app@latest:*)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run import:*)",
+      "Bash(npx tsx:*)",
+      "Bash(npm run dev:*)",
+      "Bash(curl:*)"
+    ]
+  }
+}

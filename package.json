@@ -1,0 +1,39 @@
+{
+  "name": "sales_visualization",
+  "version": "1.0.0",
+  "description": "Storesの売上の可視化",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "import": "tsx scripts/import-csv.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-takatsutougei:takatsu-tougei-eng/sales_visualization.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "better-sqlite3": "^12.6.2",
+    "csv-parse": "^6.1.0",
+    "iconv-lite": "^0.7.2",
+    "next": "^16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "recharts": "^3.7.0",
+    "tsx": "^4.21.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^25.2.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.1.6",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
+  }
+}
