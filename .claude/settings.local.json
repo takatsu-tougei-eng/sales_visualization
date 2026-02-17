@@ -20,7 +20,10 @@
       "Bash(npm run import:*)",
       "Bash(npx tsx:*)",
       "Bash(npm run dev:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(tasklist:*)",
+      "Bash(wmic process where \"name=''node.exe''\" get ProcessId,CommandLine)",
+      "Bash(taskkill:*)"
     ]
   }
 }

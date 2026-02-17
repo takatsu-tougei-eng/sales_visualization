@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import SalesChart from "@/components/SalesChart";
 import type { SeriesConfig } from "@/components/SalesChart";
+import KpiCard from "@/components/KpiCard";
 import type { DailySummary } from "@/lib/types";
 
 const TIME_SLOT_COLORS: Record<string, string> = {
@@ -102,6 +103,17 @@ export default function Dashboard() {
     );
   }
 
+  const kpiTypes = ["手回しロクロ", "電動ロクロ"] as const;
+  const kpis = kpiTypes.flatMap((type) => {
+    const rows = summaries.filter((s) => s.item_type === type);
+    const amount = rows.reduce((sum, r) => sum + r.total_amount, 0);
+    const qty = rows.reduce((sum, r) => sum + r.total_quantity, 0);
+    return [
+      { label: `${type} 売上金額`, value: amount, unit: "円" },
+      { label: `${type} 注文件数`, value: qty, unit: "件" },
+    ];
+  });
+
   const itemTypes = [...new Set(summaries.map((s) => s.item_type))].sort();
 
   const charts = itemTypes.flatMap((itemType) => {
@@ -133,18 +145,30 @@ export default function Dashboard() {
           データがありません。CSVを取り込んでください。
         </p>
       ) : (
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          {charts.map((chart) => (
-            <SalesChart
-              key={chart.title}
-              title={chart.title}
-              data={chart.data}
-              bars={chart.bars}
-              lines={chart.lines}
-              yAxisLabel={chart.yAxisLabel}
-            />
-          ))}
-        </div>
+        <>
+          <div className="grid grid-cols-2 gap-6 lg:grid-cols-4 mb-6">
+            {kpis.map((kpi) => (
+              <KpiCard
+                key={kpi.label}
+                label={kpi.label}
+                value={kpi.value}
+                unit={kpi.unit}
+              />
+            ))}
+          </div>
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            {charts.map((chart) => (
+              <SalesChart
+                key={chart.title}
+                title={chart.title}
+                data={chart.data}
+                bars={chart.bars}
+                lines={chart.lines}
+                yAxisLabel={chart.yAxisLabel}
+              />
+            ))}
+          </div>
+        </>
       )}
     </main>
   );
